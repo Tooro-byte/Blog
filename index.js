@@ -33,10 +33,6 @@ app.use(express.static("views")); // Collect pug files from the views folder.
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static("public"));
 
-//Express Session Configurations
-
-//Passport Configurations
-
 //4b: Using Imported routes from the routes folder
 app.use("/", blogRoute);
 
