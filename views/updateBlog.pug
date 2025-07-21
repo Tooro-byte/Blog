@@ -3,28 +3,39 @@ html(lang="en")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title Wanderlust Chronicles - New Blog Post
+    title Wanderlust Chronicles - Edit Blog Post
     link(rel="stylesheet", href="/css/blog.css")
+    link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css")
     link(href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap", rel="stylesheet")
 
   body
     .container
-      h1.form-title Create a New Blog Post
-      form(action="/blog", method="POST")
-        .form-group
+      h1.form-title Update Your Post
+
+      // Main form for updating the blog post
+      form(action='/updateblog/' + blog._id, method="POST")
+        .form-group.mb-3
           label(for="author") Author:
-          input(type="text", id="author", name="author", placeholder="Your Name")
+          input.form-control(type="text", id="author", name="author", value=blog.author || '')
 
-        .form-group
+        .form-group.mb-3
           label(for="location") Location:
-          input(type="text", id="location", name="location", placeholder="e.g., Bukoto")
+          input.form-control(type="text", id="location", name="location", value=blog.location || '')
 
-        .form-group
+        .form-group.mb-3
           label(for="date") Date:
-          input(type="date", id="date", name="date")
+          input.form-control(type="date", id="date", name="date", value=(blog.date ? new Date(blog.date).toISOString().split('T')[0] : ''))
 
-        .form-group
+        .form-group.mb-3
           label(for="content") Content:
-          textarea(id="content", name="content", rows="10", placeholder="Write your blog post here...")
+          textarea.form-control(id="content", name="content", rows="10")= blog.content || ''
 
-        button(type="submit") Publish Post
+        .d-flex.justify-content-between.mt-4
+          button.btn.btn-success(type="submit") Update Post
+
+      // Separate form for deleting the blog post - it should NOT be nested inside the update form
+      form(action="/deleteblog/" + blog._id, method="POST", onsubmit="return confirm('Are you sure you want to delete this blog post?');")
+        button.btn.btn-danger.mt-3(type="submit") Delete Post
+
+      // Back to blog list button, also outside the update form
+      a.btn.btn-secondary.mt-3(href="/blogLists") Back to Blog List

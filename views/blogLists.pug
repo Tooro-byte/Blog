@@ -1,0 +1,40 @@
+doctype html
+head
+  link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css")
+  style.
+    table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    }
+    td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    }
+    tr:nth-child(even) {
+    background-color: #dddddd;
+    }
+h2 Blog Lists
+table
+  thead
+    tr
+      th Author
+      th location
+      th Date
+      th Content
+      th Update
+      th Delete 
+  tbody 
+    if blog.length
+      each blogpost in blog 
+        tr
+          td #{blogpost.author}
+          td #{blogpost.location}
+          td #{moment(blogpost.date).format("DD-MM-YYY")}
+          td #{blogpost.content}
+          td 
+            a.btn.btn-primary.btn-block(href="/updateblog/"+blogpost._id) Update Blog
+          td 
+            form(method="POST", action="/deleteblog/" + blogpost._id, onsubmit="return confirm('Are you sure you want to delete this blog post?');")
+              button.btn.btn-danger.btn-block(type="submit") Delete
