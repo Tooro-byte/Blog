@@ -1,0 +1,30 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Wanderlust Chronicles - New Blog Post
+    link(rel="stylesheet", href="/css/blog.css")
+    link(href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap", rel="stylesheet")
+
+  body
+    .container
+      h1.form-title Create a New Blog Post
+      form(action="/blog", method="POST")
+        .form-group
+          label(for="author") Author:
+          input(type="text", id="author", name="author", placeholder="Your Name")
+
+        .form-group
+          label(for="location") Location:
+          input(type="text", id="location", name="location", placeholder="e.g., Bukoto")
+
+        .form-group
+          label(for="date") Date:
+          input(type="date", id="date", name="date")
+
+        .form-group
+          label(for="content") Content:
+          textarea(id="content", name="content", rows="10", placeholder="Write your blog post here...")
+
+        button(type="submit") Publish Post

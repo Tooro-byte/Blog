@@ -1,0 +1,142 @@
+/* style.css */
+
+/* Basic Reset & Body Styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #f4f7f6; /* Light background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+    box-sizing: border-box;
+}
+
+/* Container for the form */
+.container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    box-sizing: border-box;
+    margin: 20px; /* Add some margin for smaller screens */
+}
+
+/* Form Title */
+.form-title {
+    text-align: center;
+    color: #2c3e50; /* Darker blue for title */
+    margin-bottom: 30px;
+    font-size: 2.2em;
+    font-weight: 600;
+}
+
+/* Form Group for labels and inputs */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+    font-size: 1.1em;
+}
+
+/* Input fields and textarea styling */
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-size: 1em;
+    color: #333;
+    box-sizing: border-box; /* Include padding in width */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="date"]:focus,
+.form-group textarea:focus {
+    border-color: #007bff; /* Blue focus border */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Light blue shadow */
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical; /* Allow vertical resizing */
+    min-height: 120px;
+}
+
+/* Submit Button */
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #28a745; /* Green submit button */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(40, 167, 69, 0.2);
+}
+
+button[type="submit"]:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+button[type="submit"]:active {
+    background-color: #1e7e34; /* Even darker on click */
+    transform: translateY(0);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 30px;
+        margin: 15px;
+    }
+
+    .form-title {
+        font-size: 1.8em;
+    }
+
+    .form-group label {
+        font-size: 1em;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    button[type="submit"] {
+        padding: 10px;
+        font-size: 0.95em;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+        margin: 10px;
+    }
+
+    .form-title {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+
+    button[type="submit"] {
+        padding: 12px;
+        font-size: 1em;
+    }
+}
