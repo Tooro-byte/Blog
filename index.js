@@ -7,7 +7,7 @@ require("dotenv").config();
 
 //1b: Importing Routes
 const blogRoute = require("./routes/blogRoute");
-const { error } = require("console");
+const {error} = require("console");
 
 // 2: Instantiations
 const app = express();
